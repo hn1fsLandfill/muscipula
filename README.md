@@ -15,7 +15,7 @@ Run `generate.sh` and then `cook.sh`.
 > Note: You'll need the `zip` command available.
 
 Resulting executable `out/muscipula-1.0.com` should be an APE executable, you
-can run it using `sh` on Linux/FreeBSD/NetBSD/OpenBSD or directly on Windows 7
+can run it using `sh` on Linux/FreeBSD/NetBSD/OpenBSD or directly on Windows 8
 or later.
 
 Example: `sh out/muscipula-1.0.com -p 6950`
