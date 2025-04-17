@@ -1,1 +1,15 @@
-TODO
+Muscipula
+=========
+
+Yet another Markov trap designed to trap bots
+
+Usage
+-----
+
+Create a directory called `dataset`
+Now from there add any source of text you can to `dataset`. It can be anything,
+Go wild.
+Run `generate.sh` and then `cook.sh`.
+Resulting executable `out/muscipula-1.0.com` should be an APE executable, you can run it using `sh` on
+Linux/FreeBSD/NetBSD/OpenBSD or directly on Windows.
+Example: `sh out/muscipula-1.0.com -p 6950`

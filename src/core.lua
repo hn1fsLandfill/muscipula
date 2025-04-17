@@ -41,7 +41,7 @@ function muscipula.randomText(words)
 	total = ""
 	previousWord = chain[math.random(1,#chain)]
 
-	for i=1,math.random(70,100) do
+	for i=1,words do
 	--while true do
 		previousWord = muscipula.nextWord(previousWord)
 		total = total..previousWord
@@ -62,7 +62,7 @@ function muscipula.generateSlop(path)
 	math.randomseed(seed)
 
 	title = muscipula.randomText(math.random(3,6))
-	article = muscipula.randomText(math.random(30,40))
+	article = muscipula.randomText(math.random(70,100))
 	links = ""
 	bland = "[%p%c%s]"
 	for i=1,5 do
