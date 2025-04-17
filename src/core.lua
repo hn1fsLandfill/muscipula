@@ -16,16 +16,14 @@ function muscipula.nextWord(prev)
 	token = ""
 	words = muscipula.contains(prev)
 
-	weight = #words/#chain
-
 	if #words == 0 then
-		prevChain = 0 -- math.random(1,#chain-1)
+		prevChain = math.random(1,#chain-1)
 	else
 		prevChain = words[math.random(1,#words)]
 	end
 
 	if prevChain == #muscipula.chain then
-		prevChain = 0 -- math.random(1,#chain-1)
+		prevChain = math.random(1,#chain-1)
 	end
 
 	token = muscipula.chain[prevChain+1]
@@ -42,21 +40,21 @@ function muscipula.randomText(words)
 	previousWord = chain[math.random(1,#chain)]
 
 	for i=1,words do
-	--while true do
 		previousWord = muscipula.nextWord(previousWord)
 		total = total..previousWord
-		--io.write(previousWord)
-		--io:flush()
 	end
 	-- Clean up resulting text from any newlines
 	total = total:gsub("\n", " ")
 	return total
 end
 
-function muscipula.generateSlop(path)
-	seed_raw = path.."q"
+function muscipula.generateSlop(path,dirpath)
+	if dirpath == nil then
+		dirpath = ""
+	end
+
 	seed = 0
-	for i=1,#seed_raw do
+	for i=1,#path do
 		seed = seed + string.byte(seed_raw:sub(i,i))
 	end
 	math.randomseed(seed)
@@ -67,7 +65,7 @@ function muscipula.generateSlop(path)
 	bland = "[%p%c%s]"
 	for i=1,5 do
 		word = muscipula.randomWord()
-		href = string.format("/int/%s/%s",muscipula.randomWord():gsub(bland,""),muscipula.randomWord():gsub(bland,""))
+		href = string.format("%s/%s/%s",dirpath,muscipula.randomWord():gsub(bland,""),muscipula.randomWord():gsub(bland,""))
 		links = links..string.format("<a href='%s'>%s</a><br>",href,word:gsub(bland,""))
 	end
 	-- Giant blob but who cares
