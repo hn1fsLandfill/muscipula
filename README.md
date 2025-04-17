@@ -20,7 +20,8 @@ or later.
 
 Example: `sh out/muscipula-1.0.com -p 6950`
 
-You are expected to hide the trap behind Nginx or a webserver, example nginx snippet:
+You are expected to hide the trap behind Nginx or a webserver, example nginx
+snippet:
 
     location /muscipula {
         proxy_pass http://127.0.0.1:6950;
